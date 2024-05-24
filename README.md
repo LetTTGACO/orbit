@@ -1,29 +1,38 @@
-# Create T3 App
+# [T3 App Template]: T3 Stack with shadcn-ui Admin Layout
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+## Overview
 
-## What's next? How do I make an app with this?
+This project is a management interface developed using the [T3 Stack](https://create.t3.gg/), encapsulated with [shadcn-ui](https://ui.shadcn.com/)
+. It aims to provide a responsive, user-friendly, and feature-rich admin interface suitable for various devices and screen sizes.
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+## Features
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+- Theme Switching: Allows users to switch the interface theme according to their preference or requirement.
+- Responsive Sidebar: A flexible sidebar that adapts to different screen sizes and devices.
+- Sidebar Shrinking: Users can expand or collapse the sidebar as needed to optimize screen space.
+- Secondary Menu in Sidebar: For better organization and access, the sidebar includes multi-level menus.
+- Mobile Sidebar: Specially designed for mobile devices to ensure smooth usage on smaller screens.
+- Tanstack Table: Use tanstack table to implement curd operation
+- NextAuth: Implemented Github login using NextAuth
+- Global: Header, Loading and Modal
+- Select: Implement multi-select input example
+- Step Form: Implement step-form example
+- Other Features...: Waiting for further updates
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Drizzle](https://orm.drizzle.team)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+## Quick Start
 
-## Learn More
+1. Clone the repository: git clone https://github.com/gaofubin/t3-app-template.git
+2. Install dependencies: npm install
+3. Start the project: npm run dev
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+## Dashboard Demo
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
+> Demo Link: https://t3-app-template.vercel.app/
 
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
+![Alt text](demo/light.png)
 
-## How do I deploy this?
+![Alt text](demo/dark.png)
 
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+![Alt text](demo/example-01-light.png)
+
+![Alt text](demo/example-01-dark.png)
