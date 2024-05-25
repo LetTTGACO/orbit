@@ -1,5 +1,5 @@
 'use client';
-import { Button } from '@/app/_components/ui/button';
+import { Button } from '@/app/components/ui/button';
 import {
   Form,
   FormControl,
@@ -7,8 +7,8 @@ import {
   FormItem,
   FormLabel,
   FormMessage
-} from '@/app/_components/ui/form';
-import { Input } from '@/app/_components/ui/input';
+} from '@/app/components/ui/form';
+import { Input } from '@/app/components/ui/input';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { signIn } from 'next-auth/react';
 import { useSearchParams } from 'next/navigation';

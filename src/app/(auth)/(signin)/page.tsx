@@ -1,7 +1,7 @@
 import { type Metadata } from 'next';
 import Link from 'next/link';
-import UserAuthForm from '@/app/_components/forms/user-auth-form';
-import { buttonVariants } from '@/app/_components/ui/button';
+import UserAuthForm from '@/app/components/forms/user-auth-form';
+import { buttonVariants } from '@/app/components/ui/button';
 import { cn } from '@/lib/utils';
 
 export const metadata: Metadata = {
