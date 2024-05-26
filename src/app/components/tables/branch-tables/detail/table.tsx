@@ -15,26 +15,21 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "./table";
-import { Input } from "./input";
-import { Button } from "./button";
-import { ScrollArea, ScrollBar } from "./scroll-area";
-import { RotateCcw } from "lucide-react";
+} from "@/app/components/ui//table";
+import { Button } from "@/app/components/ui//button";
+import { ScrollArea, ScrollBar } from "@/app/components/ui/scroll-area";
 import React from "react";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
   searchKey: string;
-  loading?: boolean;
-  onRefresh?: () => void;
 }
 
-export function DataTable<TData, TValue>({
+export function BranchDetailTable<TData, TValue>({
   columns,
   data,
   searchKey,
-  onRefresh,
 }: DataTableProps<TData, TValue>) {
   const table = useReactTable<TData>({
     data,
@@ -48,19 +43,6 @@ export function DataTable<TData, TValue>({
 
   return (
     <>
-      <div className="flex items-start justify-between">
-        <Input
-          placeholder={`Search ${searchKey}...`}
-          value={(table.getColumn(searchKey)?.getFilterValue() as string) ?? ""}
-          onChange={(event) =>
-            table.getColumn(searchKey)?.setFilterValue(event.target.value)
-          }
-          className="w-full md:max-w-sm"
-        />
-        <Button className="text-xs md:text-sm" onClick={onRefresh}>
-          <RotateCcw className="mr-2 h-4 w-4" /> 刷新
-        </Button>
-      </div>
       <ScrollArea className="h-[calc(80vh-220px)] rounded-md border">
         <Table className="relative">
           <TableHeader>
@@ -98,16 +80,7 @@ export function DataTable<TData, TValue>({
                   ))}
                 </TableRow>
               ))
-            ) : (
-              <TableRow>
-                <TableCell
-                  colSpan={columns.length}
-                  className="h-24 text-center"
-                >
-                  No results.
-                </TableCell>
-              </TableRow>
-            )}
+            ) : null}
           </TableBody>
         </Table>
         <ScrollBar orientation="horizontal" />

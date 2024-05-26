@@ -52,6 +52,7 @@ model User {
   sessions      Session[]
   branchs       Branch[]
   apps          App[]
+  builds        Build[]
 }
 
 model VerificationToken {
@@ -64,41 +65,46 @@ model VerificationToken {
 
 // 分支
 model Branch {
-  id            String          @id @default(cuid())
-  name          String
-  createdAt     DateTime        @default(now())
-  updatedAt     DateTime        @updatedAt
-  apps          App[]
-  createdBy     User            @relation(fields: [createdById], references: [id])
-  createdById   String
-  AppsOnBranchs AppsOnBranchs[]
+  id          String   @id @default(cuid())
+  name        String   @unique
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  createdBy   User     @relation(fields: [createdById], references: [id])
+  createdById String
+  builds      Build[]
+  envs        Env[]
 
   @@index([name])
 }
 
 // 应用
 model App {
-  id        String   @id @default(cuid())
-  name      String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  createdBy     User            @relation(fields: [createdById], references: [id])
-  createdById   String
-  branchs       Branch[]
-  AppsOnBranchs AppsOnBranchs[]
+  id          String   @id @default(cuid())
+  name        String   @unique
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  createdBy   User     @relation(fields: [createdById], references: [id])
+  createdById String
+  builds      Build[]
 
   @@index([name])
 }
 
-// 多对多关系映射
-model AppsOnBranchs {
-  branch     Branch   @relation(fields: [branchId], references: [id])
-  branchId   String
-  app        App      @relation(fields: [appId], references: [id])
-  appId      String
-  assignedAt DateTime @default(now())
-  assignedBy String
+// 构建
+model Build {
+  id          String   @id @default(cuid())
+  app         App      @relation(fields: [appId], references: [id])
+  appId       String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  createdBy   User     @relation(fields: [createdById], references: [id])
+  createdById String
+  branchs     Branch[]
+}
 
-  @@id([branchId, appId])
+// 环境
+model Env {
+  id     String   @id @default(cuid())
+  name   String   @unique
+  Branch Branch[]
 }

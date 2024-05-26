@@ -1,5 +1,5 @@
 import BreadCrumb from '@/app/components/breadcrumb';
-import { BranchClient } from '@/app/components/tables/branch-tables/client';
+import { BranchClient } from '@/app/components/tables/branch-tables/list/client';
 import { api } from "@/trpc/server";
 
 const breadcrumbItems = [{ title: '分支管理', link: '/branch' }];
